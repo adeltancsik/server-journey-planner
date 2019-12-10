@@ -8,6 +8,7 @@ const jsonParser = bodyParser.json();
 const journeyRouter = require("./journey/router");
 const userRouter = require("./user/router");
 const authRouter = require("./auth/router");
+const toDoRouter = require("./toDo/router");
 
 app
   .use(middleware)
@@ -15,5 +16,6 @@ app
   .use(journeyRouter)
   .use(userRouter)
   .use(authRouter)
+  .use(toDoRouter)
 
   .listen(port, () => console.log(`We are listening on port ${port}!!`));

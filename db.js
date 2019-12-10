@@ -1,4 +1,4 @@
-const timezone = "Europe/Vilnius";
+const timezone = "Europe/Amsterdam";
 require("moment").tz.setDefault(timezone);
 
 const Sequelize = require("sequelize");

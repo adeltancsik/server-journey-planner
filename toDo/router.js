@@ -10,7 +10,8 @@ router.get("/journey/:journeyId/todos", (request, response, next) => {
   ToDo.findAll({
     where: {
       journeyId: request.params.journeyId
-    }
+    },
+    order: ["time"]
   })
     .then(result => {
       response.send(result);

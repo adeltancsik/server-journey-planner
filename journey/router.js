@@ -5,9 +5,15 @@ const auth = require("../auth/middleware");
 
 const router = new Router();
 
-// find all journeys
-router.get("/journeys", (request, response, next) => {
-  Journey.findAll()
+// find all journeys of a specific user
+router.get("/journeys", auth, (request, response, next) => {
+  const { user } = request;
+
+  Journey.findAll({
+    where: {
+      userId: user.id
+    }
+  })
     .then(result => {
       response.send(result);
     })
@@ -16,7 +22,9 @@ router.get("/journeys", (request, response, next) => {
 
 // create a new journey
 router.post("/journey", auth, (request, response, next) => {
-  Journey.create(request.body)
+  const { user } = request;
+
+  Journey.create({ userId: user.id, ...request.body })
     .then(result => response.json(result))
     .catch(next);
 });

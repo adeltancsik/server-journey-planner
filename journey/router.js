@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const Journey = require("./model");
-// const auth = require("../auth/middleware");
+const auth = require("../auth/middleware");
 // const { Op } = require("sequelize");
 
 const router = new Router();
@@ -15,7 +15,7 @@ router.get("/journeys", (request, response, next) => {
 });
 
 // create a new journey
-router.post("/journey", (request, response, next) => {
+router.post("/journey", auth, (request, response, next) => {
   Journey.create(request.body)
     .then(result => response.json(result))
     .catch(next);

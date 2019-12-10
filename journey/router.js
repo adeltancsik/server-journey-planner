@@ -21,18 +21,18 @@ router.post("/journey", auth, (request, response, next) => {
     .catch(next);
 });
 
-// // find one event
-// router.get("/event/:id", (request, response, next) => {
-//   Event.findByPk(request.params.id, { include: [Ticket] })
-//     .then(event => {
-//       if (event) {
-//         response.json(event);
-//       } else {
-//         response.status(404).end();
-//       }
-//     })
-//     .catch(next);
-// });
+// find one journey
+router.get("/journey/:id", (request, response, next) => {
+  Journey.findByPk(request.params.id)
+    .then(journey => {
+      if (journey) {
+        response.json(journey);
+      } else {
+        response.status(404).end();
+      }
+    })
+    .catch(next);
+});
 
 // // delete a single event
 // router.delete("/events/:id", (request, response, next) =>

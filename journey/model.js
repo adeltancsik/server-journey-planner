@@ -3,7 +3,8 @@ const db = require("../db");
 
 const Journey = db.define("journey", {
   name: Sequelize.STRING,
-  country: Sequelize.STRING
+  country: Sequelize.STRING,
+  startDate: Sequelize.DATEONLY
 });
 
 module.exports = Journey;

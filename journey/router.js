@@ -7,7 +7,7 @@ const router = new Router();
 
 // find all journeys
 router.get("/journeys", (request, response, next) => {
-  Event.findAll()
+  Journey.findAll()
     .then(result => {
       response.send(result);
     })

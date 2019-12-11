@@ -31,7 +31,7 @@ router.put("/pack/:id", (request, response, next) => {
     .then(pack => {
       if (pack) {
         pack
-          .update(request.body)
+          .update({ done: true })
           .then(result => {
             response.json(result);
           })

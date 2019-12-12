@@ -30,12 +30,21 @@ router.put("/pack/:id", (request, response, next) => {
   Pack.findByPk(request.params.id)
     .then(pack => {
       if (pack) {
-        pack
-          .update({ done: true })
-          .then(result => {
-            response.json(result);
-          })
-          .catch(next);
+        if (pack.done === false) {
+          pack
+            .update({ done: true })
+            .then(result => {
+              response.json(result);
+            })
+            .catch(next);
+        } else {
+          pack
+            .update({ done: false })
+            .then(result => {
+              response.json(result);
+            })
+            .catch(next);
+        }
       } else {
         // forbidden
         response.status(404).send({

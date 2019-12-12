@@ -26,17 +26,17 @@ router.post("/todo", (request, response, next) => {
     .catch(next);
 });
 
-// // delete a single event
-// router.delete("/events/:id", (request, response, next) =>
-//   Event.destroy({ where: { id: request.params.id } })
-//     .then(number => {
-//       if (number) {
-//         response.status(204).end();
-//       } else {
-//         response.status(404).end();
-//       }
-//     })
-//     .catch(next)
-// );
+// delete a single todo
+router.delete("/todos/:id", (request, response, next) =>
+  ToDo.destroy({ where: { id: request.params.id } })
+    .then(number => {
+      if (number) {
+        response.status(204).end();
+      } else {
+        response.status(404).end();
+      }
+    })
+    .catch(next)
+);
 
 module.exports = router;

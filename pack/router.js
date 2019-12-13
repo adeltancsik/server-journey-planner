@@ -1,7 +1,5 @@
 const { Router } = require("express");
 const Pack = require("./model");
-// const auth = require("../auth/middleware");
-// const { Op } = require("sequelize");
 
 const router = new Router();
 
@@ -10,7 +8,8 @@ router.get("/journey/:journeyId/packs", (request, response, next) => {
   Pack.findAll({
     where: {
       journeyId: request.params.journeyId
-    }
+    },
+    order: ["id"]
   })
     .then(result => {
       response.send(result);
@@ -54,18 +53,5 @@ router.put("/pack/:id", (request, response, next) => {
     })
     .catch(next);
 });
-
-// // delete a single event
-// router.delete("/events/:id", (request, response, next) =>
-//   Event.destroy({ where: { id: request.params.id } })
-//     .then(number => {
-//       if (number) {
-//         response.status(204).end();
-//       } else {
-//         response.status(404).end();
-//       }
-//     })
-//     .catch(next)
-// );
 
 module.exports = router;

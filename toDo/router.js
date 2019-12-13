@@ -1,7 +1,5 @@
 const { Router } = require("express");
 const ToDo = require("./model");
-// const auth = require("../auth/middleware");
-// const { Op } = require("sequelize");
 
 const router = new Router();
 

@@ -24,6 +24,7 @@ Link to client side:
 
 - **[How to install](#how-to-install)**
 - **[Features built so far and the routes](#features-built-so-far)**
+- **[Technologies](#technologies)**
 
 ## How to install
 
@@ -41,3 +42,14 @@ Link to client side:
 ## Features built so far
 
 ![](journey-planner.gif)
+
+## Technologies
+
+- NodeJS
+- Express
+- Sequelize
+- Body-parser
+- Cors
+- Bcrypt
+- JSON Webtoken
+- PostgreSQL
